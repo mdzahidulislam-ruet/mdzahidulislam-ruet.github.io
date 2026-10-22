@@ -67,7 +67,9 @@ h1{
   width:100%; max-width:200px; aspect-ratio:1/1; object-fit:cover; display:block;
   border-radius:4px; border:1px solid var(--line); background:var(--surface);
 }
-.links{display:flex; flex-wrap:wrap; gap:10px 22px; align-items:center; font-size:15px}
+.links{display:grid; gap:10px; font-size:15px}
+.linkrow{display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center}
+.body p, ul.points li, .project p, .skills dd{text-align:justify; hyphens:auto; -webkit-hyphens:auto}
 .email{display:inline-flex; align-items:center; gap:8px; font-family:var(--f-mono); font-size:14px; min-width:0; flex-wrap:wrap}
 .email span{user-select:all; overflow-wrap:anywhere}
 .copy{
@@ -160,12 +162,16 @@ footer{border-top:1px solid var(--line); padding-top:24px; font-size:13px; color
       <h1>Md. Zahidul Islam</h1>
       <p class="role"><strong>Research Consultant at CEGIS</strong> and B.Sc. graduate in Electrical &amp; Electronic Engineering from RUET. I design power converters for harmonic reduction and high step-up PV conversion, and I model distribution networks for Bangladesh's power utility. I am seeking a PhD position in power electronics or power systems.</p>
       <div class="links">
-        <span class="email"><span id="addr">zahidulislam.ruet.2018@gmail.com</span><button class="copy" id="copyBtn" type="button">Copy</button></span>
-        <a href="https://www.linkedin.com/in/md-zahidul-islam-zahid-p572737/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=iIjoWk4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        <a href="Md_Zahidul_Islam_CV.pdf" target="_blank" rel="noopener">CV</a>
-        <a href="research.html">Research figures</a>
-        <span class="meta">Dhaka, Bangladesh</span>
+        <div class="linkrow">
+          <span class="email"><span id="addr">zahidulislam.ruet.2018@gmail.com</span><button class="copy" id="copyBtn" type="button">Copy</button></span>
+          <span class="meta">Dhaka, Bangladesh</span>
+        </div>
+        <div class="linkrow">
+          <a href="https://www.linkedin.com/in/md-zahidul-islam-zahid-p572737/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=iIjoWk4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="Md_Zahidul_Islam_CV.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="research.html">Research figures</a>
+        </div>
       </div>
     </div>
     <figure class="portrait">
