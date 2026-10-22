@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Md. Zahidul Islam Research</title>
+<meta name="description" content="Research figures from Md. Zahidul Islam's work on multipulse rectifiers and power converters.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: same column and tokens as the home page; figures sit on white "paper" plates in both themes, numbered as in the published paper. */
+:root{
+  color-scheme:light;
+  --bg:#f3f5f4;
+  --surface:#ffffff;
+  --paper:#ffffff;
+  --ink:#16201c;
+  --muted:#56635d;
+  --line:#d6ddd9;
+  --accent:#2c6a4e;
+  --accent-soft:#e1ece6;
+  --f-display:"Newsreader", Georgia, "Times New Roman", serif;
+  --f-body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111715; --surface:#18201d; --ink:#e4ebe7; --muted:#9aa8a1; --line:#2a3531;
+    --accent:#7cc4a0; --accent-soft:#1f2e28; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111715; --surface:#18201d; --ink:#e4ebe7; --muted:#9aa8a1; --line:#2a3531;
+  --accent:#7cc4a0; --accent-soft:#1f2e28; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--f-body); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+.wrap{
+  max-width:980px; margin:0 auto;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:40px 72px;
+}
+a{color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+nav{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 20px; font-size:14px; margin-bottom:40px}
+nav .home{font-family:var(--f-display); font-size:1.1rem; font-weight:500; color:var(--ink); text-decoration:none}
+nav .home:hover{color:var(--accent)}
+
+.eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+h1{font-family:var(--f-display); font-weight:500; font-size:clamp(2rem, 5vw, 3rem); line-height:1.1; margin:8px 0 40px; text-wrap:balance}
+
+.project{display:grid; gap:28px; padding-block:32px; border-top:1px solid var(--line)}
+.project:first-of-type{border-top:0; padding-top:0}
+.head{display:grid; gap:12px}
+h2{font-family:var(--f-display); font-weight:600; font-size:clamp(1.4rem, 3.4vw, 1.9rem); line-height:1.2; margin:0; text-wrap:balance}
+.cite{font-size:14px; color:var(--muted); margin:0; max-width:75ch}
+.cite b{color:var(--ink); font-weight:600}
+.summary{margin:0; max-width:68ch; text-align:justify; hyphens:auto; -webkit-hyphens:auto}
+.tags{display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:14px}
+.tag{font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); padding:2px 8px; border-radius:3px}
+
+.facts{display:grid; grid-template-columns:repeat(auto-fit, minmax(130px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden}
+.facts div{background:var(--surface); padding:10px 12px; display:grid; gap:2px}
+.facts b{font-family:var(--f-mono); font-weight:500; font-size:15px; font-variant-numeric:tabular-nums}
+.facts span{font-size:12px; color:var(--muted)}
+
+.figs{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:28px 24px}
+figure{margin:0; display:grid; gap:10px; align-content:start; min-width:0}
+figure.wide{grid-column:1 / -1}
+.plate{
+  display:block; background:var(--paper); border:1px solid var(--line); border-radius:4px;
+  padding:14px; transition:border-color .15s;
+}
+.plate:hover{border-color:var(--accent)}
+.plate img{display:block; width:100%; height:auto}
+figcaption{font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 12px; align-items:baseline}
+figcaption .no{font-family:var(--f-mono); font-size:12px; color:var(--ink); font-weight:500; margin-right:6px}
+figcaption a{font-size:13px; white-space:nowrap}
+.pair-label{grid-column:1 / -1; font-family:var(--f-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:6px 0 -14px}
+
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:4px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:680px; font-size:14px; font-variant-numeric:tabular-nums}
+th, td{padding:9px 12px; text-align:center; border-bottom:1px solid var(--line)}
+thead th{font-weight:600; font-size:12.5px; line-height:1.35; vertical-align:bottom}
+thead tr:first-child th{font-family:var(--f-display); font-size:15px; border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:0}
+td:first-child, th:first-child{text-align:left; font-family:var(--f-mono); font-size:13px}
+.ours{background:var(--accent-soft); color:var(--ink)}
+td.ours{font-weight:600}
+.pass{color:var(--accent)}
+.tablenote{font-size:13px; color:var(--muted); margin:0; max-width:75ch}
+
+footer{border-top:1px solid var(--line); padding-top:24px; margin-top:16px; font-size:13px; color:var(--muted); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 24px}
+
+@media (max-width:720px){
+  .figs{grid-template-columns:minmax(0,1fr)}
+  .plate{padding:8px}
+  .pair-label{margin-bottom:-18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="home" href="index.html">← Md. Zahidul Islam</a>
+    <a href="Md_Zahidul_Islam_CV.pdf" target="_blank" rel="noopener">CV</a>
+  </nav>
+
+  <div class="eyebrow">Research figures</div>
+  <h1>Selected results</h1>
+
+  <section class="project" id="rectifier">
+    <div class="head">
+      <h2>Delta/Fork Transformer Based 30-Pulse Star Rectifier for Input Current Harmonic Reduction</h2>
+      <p class="cite"><b>M. Z. Islam</b>, M. A. Malek, M. A. G. Khan, and M. R. Tahmid, 4th Int. Conf. on Robotics, Electrical and Signal Processing Techniques (ICREST), Dhaka, Bangladesh, 2025, pp. 398–402.</p>
+      <div class="tags"><span class="tag">Published</span><a href="https://ieeexplore.ieee.org/document/10914466" target="_blank" rel="noopener">View on IEEE Xplore</a></div>
+      <p class="summary">A delta/fork transformer produces two sets of fifteen phase-shifted voltages, 12° apart. Each set feeds a 15-pulse star rectifier, and an inter-phase transformer combines the two into a 30-pulse output. Harmonics below the 29th cancel, so the input current stays within the IEEE&nbsp;519 limit of 5% THD across the whole load range.</p>
+      <div class="facts" role="list" aria-label="Simulation conditions and key results">
+        <div role="listitem"><b>400 V, 50 Hz</b><span>Line-to-line input</span></div>
+        <div role="listitem"><b>100 kW</b><span>Load</span></div>
+        <div role="listitem"><b>3.75 %</b><span>Current THD, full load</span></div>
+        <div role="listitem"><b>4.04 %</b><span>Voltage THD, full load</span></div>
+        <div role="listitem"><b>29th, 31st</b><span>Lowest harmonics left</span></div>
+      </div>
+    </div>
+
+    <div class="figs">
+      <figure class="wide">
+        <a class="plate" href="figures/rectifier-circuit.png" target="_blank" rel="noopener" aria-label="View Fig. 1 full size">
+          <img src="figures/rectifier-circuit.png" alt="Circuit of the proposed 30-pulse star rectifier: a delta-connected primary and fork-connected secondary winding feed two 15-pulse star diode rectifiers, joined through an inter-phase transformer to a DC filter and load." width="1800" height="1193">
+        </a>
+        <figcaption><span><span class="no">Fig. 1</span>Proposed 30-pulse star rectifier.</span></figcaption>
+      </figure>
+
+      <div class="pair-label">Input line current at full load</div>
+      <figure>
+        <a class="plate" href="figures/input-current-waveform.png" target="_blank" rel="noopener" aria-label="View Fig. 3 full size">
+          <img src="figures/input-current-waveform.png" alt="Input line current over 0.04 s: a near-sinusoidal waveform peaking at about 200 A with fine stepped ripple." loading="lazy">
+        </a>
+        <figcaption><span><span class="no">Fig. 3</span>Waveform of input line current at full load.</span></figcaption>
+      </figure>
+      <figure>
+        <a class="plate" href="figures/input-current-spectrum.png" target="_blank" rel="noopener" aria-label="View Fig. 4 full size">
+          <img src="figures/input-current-spectrum.png" alt="Harmonic spectrum of input line current: THD 3.75%, with only small 29th and 31st order harmonics remaining." loading="lazy">
+        </a>
+        <figcaption><span><span class="no">Fig. 4</span>Spectrum of input line current at full load.</span></figcaption>
+      </figure>
+
+      <div class="pair-label">Input line-to-line voltage at full load</div>
+      <figure>
+        <a class="plate" href="figures/input-voltage-waveform.png" target="_blank" rel="noopener" aria-label="View Fig. 5 full size">
+          <img src="figures/input-voltage-waveform.png" alt="Input line-to-line voltage over 0.04 s: a near-sinusoidal waveform peaking at about 565 V." loading="lazy">
+        </a>
+        <figcaption><span><span class="no">Fig. 5</span>Waveform of input line-to-line voltage at full load.</span></figcaption>
+      </figure>
+      <figure>
+        <a class="plate" href="figures/input-voltage-spectrum.png" target="_blank" rel="noopener" aria-label="View Fig. 6 full size">
+          <img src="figures/input-voltage-spectrum.png" alt="Harmonic spectrum of input line-to-line voltage: THD 4.04%, with only small 29th and 31st order harmonics remaining." loading="lazy">
+        </a>
+        <figcaption><span><span class="no">Fig. 6</span>Spectrum of input line-to-line voltage at full load.</span></figcaption>
+      </figure>
+
+      <figure class="wide">
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">% Load</th>
+                <th colspan="2" class="ours">Proposed 30-pulse</th>
+                <th colspan="2">18-pulse [9]</th>
+                <th colspan="2">12-pulse</th>
+                <th colspan="2">6-pulse</th>
+              </tr>
+              <tr>
+                <th class="ours">Current THD (%)</th><th class="ours">Voltage THD (%)</th>
+                <th>Current THD (%)</th><th>Voltage THD (%)</th>
+                <th>Current THD (%)</th><th>Voltage THD (%)</th>
+                <th>Current THD (%)</th><th>Voltage THD (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>20</td><td class="ours">4.77</td><td class="ours">1.34</td><td>7.69</td><td>1.76</td><td>12.05</td><td>2.03</td><td>22.75</td><td>2.54</td></tr>
+              <tr><td>40</td><td class="ours">4.47</td><td class="ours">2.58</td><td>7.56</td><td>2.64</td><td>11.85</td><td>3.34</td><td>22.69</td><td>3.76</td></tr>
+              <tr><td>60</td><td class="ours">4.30</td><td class="ours">3.13</td><td>7.31</td><td>3.16</td><td>11.42</td><td>4.32</td><td>22.65</td><td>5.03</td></tr>
+              <tr><td>80</td><td class="ours">4.02</td><td class="ours">3.52</td><td>7.07</td><td>3.52</td><td>11.00</td><td>5.30</td><td>22.64</td><td>6.22</td></tr>
+              <tr><td>100</td><td class="ours">3.75</td><td class="ours">4.04</td><td>6.72</td><td>4.42</td><td>10.70</td><td>6.20</td><td>22.46</td><td>7.37</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption><span><span class="no">Table II</span>Performance analysis: THD of input line current and line-to-line voltage under varying load.</span></figcaption>
+        <p class="tablenote">The proposed rectifier is the only topology whose input current THD stays below the 5% IEEE&nbsp;519 limit at every load level.</p>
+      </figure>
+    </div>
+  </section>
+
+  <footer>
+    <span>Figures and table reproduced from the ICREST 2025 paper. © 2025 IEEE.</span>
+    <a href="index.html">Back to home</a>
+  </footer>
+</div>
+</body>
+</html>
